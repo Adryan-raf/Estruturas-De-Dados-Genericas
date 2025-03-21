@@ -85,7 +85,7 @@ public class ABB <T extends Comparable<T>> {
 
         return null;
     }
-       
+
     public void remove(T valor){
         if(this.isEmpty()){
             System.out.println("Árvore Vázia!");
@@ -107,37 +107,54 @@ public class ABB <T extends Comparable<T>> {
         else if(result>0)    
             r = r.getRight();            
     
-        }while (r!=null && result != 0);
-       
-        if(result==0){
-            if(r.getLeft()==null && r.getRight()==null){
-                if(parent.getInfo().compareTo(r.getInfo())<0)
-                    parent.setLeft(null);
+    }while (r!=null && result != 0);
 
-                else 
-                    parent.setRight(null);
+    if(result==0){
+        result = parent.getInfo().compareTo(r.getInfo());
+        if(r.getLeft()==null && r.getRight()==null){
+            
+            if(result<0) parent.setLeft(null);
+            else parent.setRight(null);
 
-            }
-            else if(r.getLeft()==null){
-                if(parent.getInfo().compareTo(r.getInfo())<0)
-                    parent.setLeft(r.getRight());
-
-                else 
-                    parent.setRight(r.getRight());
-            }
-            else if(r.getRight()==null){
-                if(parent.getInfo().compareTo(r.getInfo())<0)
-                    parent.setLeft(r.getLeft());
-
-                else 
-                    parent.setRight(r.getLeft());
-            }else{
-                ABBNode<T> p;
-                ABBNode<T> c; 
-            }
-
+            return this.root;
         }
-        
+        else if(r.getLeft()==null){
+
+                if(result<0) parent.setLeft(r.getRight());
+                else parent.setRight(r.getRight());
+                
+            return this.root;
+        }
+        else if(r.getRight()==null){
+
+            if(result<0) parent.setLeft(r.getLeft());
+            else parent.setRight(r.getLeft());
+
+            return this.root;
+        }
+        else{
+            ABBNode<T> previous = r;
+            ABBNode<T> current = previous.getLeft(); 
+            if(current.getRight()!=null){
+                while(current.getRight()!=null){
+                    previous = current;
+                    current = current.getRight();
+                }
+
+                previous.setRight(current.getLeft());
+                
+            }else{
+                previous.setLeft(current.getLeft());
+            }
+            
+            if(result < 0) parent.setLeft(r.getLeft());
+            else parent.setRight(r.getLeft());
+            
+            return this.root;
+            }
+        }
         return null;
     }    
+
 }
+
