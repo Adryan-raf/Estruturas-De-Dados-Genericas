@@ -5,6 +5,10 @@ public class AVLNode<T extends Comparable<T>> {
     private AVLNode<T> right;
     private int balFact;
 
+    public AVLNode(T info){
+        this.info = info;
+        this.balFact = 0;
+    }
 
     public AVLNode<T> getLeft() {
         return this.left;

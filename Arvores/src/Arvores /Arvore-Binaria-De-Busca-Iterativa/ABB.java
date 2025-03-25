@@ -49,12 +49,11 @@ public class ABB <T extends Comparable<T>> {
     
         }
         
-        child = new ABBNode<T>(valor);
         if(valor.compareTo(parent.getInfo()) < 0)
-            parent.setLeft(child);
+            parent.setLeft(new ABBNode<>(valor));
             
         else
-            parent.setRight(child);
+            parent.setRight(new ABBNode<>(valor));
     }
             
     public void search(T valor){      
