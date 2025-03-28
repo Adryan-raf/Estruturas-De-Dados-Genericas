@@ -1,19 +1,19 @@
-public class AVLNode<T extends Comparable<T>> {
+class AVLRNode<T extends Comparable<T>> {
 
-    private AVLNode<T> left;
+    private AVLRNode<T> left;
     private T info;
-    private AVLNode<T> right;
+    private AVLRNode<T> right;
     private int balFact;
 
-    public AVLNode(T info){
+    public AVLRNode(T info){
         this.info = info;
         this.balFact = 0;
     }
 
-    public AVLNode<T> getLeft() {
+    public AVLRNode<T> getLeft() {
         return this.left;
     }
-    public void setLeft(AVLNode<T> left) {
+    public void setLeft(AVLRNode<T> left) {
         this.left = left;
     }
 
@@ -24,10 +24,10 @@ public class AVLNode<T extends Comparable<T>> {
         this.info = info;
     }
 
-    public AVLNode<T> getRight() {
+    public AVLRNode<T> getRight() {
         return this.right;
     }
-    public void setRight(AVLNode<T> right) {
+    public void setRight(AVLRNode<T> right) {
         this.right = right;
     }
 
