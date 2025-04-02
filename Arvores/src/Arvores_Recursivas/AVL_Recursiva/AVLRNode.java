@@ -1,4 +1,6 @@
-class AVLRNode<T extends Comparable<T>> {
+package Arvores_Recursivas.AVL_Recursiva;
+
+public class AVLRNode<T extends Comparable<T>> {
 
     private AVLRNode<T> left;
     private T info;

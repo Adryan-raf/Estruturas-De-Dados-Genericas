@@ -1,6 +1,8 @@
-public class Queue<T> {
-    private QueueNode<T> inicio;
-    private QueueNode<T> fim;   
+package Listas.Queue;
+
+public class Queue_<T> {
+    private QueueNode_<T> inicio;
+    private QueueNode_<T> fim;   
     
     public boolean isEmpty () {
         return this.inicio == null;
@@ -10,8 +12,8 @@ public class Queue<T> {
         return false;
     }
 
-    public void enQueue (T info) {
-        QueueNode<T> novo = new QueueNode<T>(info);
+    public void enQueue_ (T info) {
+        QueueNode_<T> novo = new QueueNode_<T>(info);
         if (this.isEmpty() == true) {
             this.inicio = novo;
             this.fim = novo;
@@ -22,8 +24,8 @@ public class Queue<T> {
         }
     }
      
-    public T deQueue () {
-        QueueNode<T> aux = this.inicio;
+    public T deQueue_ () {
+        QueueNode_<T> aux = this.inicio;
         this.inicio = this.inicio.getProx();
         return aux.getInfo();
     }
